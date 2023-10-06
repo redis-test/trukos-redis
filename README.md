@@ -34,3 +34,9 @@ get saludos
 ```
 lpush marcas *adidas* *nike* *puma*
 ```
+
+# Redis Comander
+```
+docker run --rm --name redis-commander -d -p 8081:8081 \
+  ghcr.io/joeferner/redis-commander:latest
+```
