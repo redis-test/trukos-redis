@@ -40,3 +40,27 @@ lpush marcas *adidas* *nike* *puma*
 docker run --rm --name redis-commander-2 -d  --env REDIS_HOST=local:host.docker.internal:6379  -p 8081:8081 \
   ghcr.io/joeferner/redis-commander:latest
 ```
+
+# Python y Redis
+```
+import redis
+
+r = redis.Redis(host='localhost', port=6379, db=0)
+
+marcas = r.lrange('marcas', 0, -1)
+for marca in marcas:
+    print(marca.decode('utf-8'))
+
+
+saludos = r.get('saludos')
+print(saludos.decode('utf-8'))
+
+
+r.set('despedida', 'Hasta luego')
+despedida = r.get('despedida')
+print(despedida.decode('utf-8'))
+
+r.delete('despedida')
+despedida = r.get('despedida')
+print(despedida)
+```
