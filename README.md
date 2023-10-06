@@ -37,6 +37,6 @@ lpush marcas *adidas* *nike* *puma*
 
 # Redis Comander
 ```
-docker run --rm --name redis-commander -d -p 8081:8081 \
+docker run --rm --name redis-commander-2 -d  --env REDIS_HOST=local:host.docker.internal:6379  -p 8081:8081 \
   ghcr.io/joeferner/redis-commander:latest
 ```
