@@ -64,3 +64,44 @@ r.delete('despedida')
 despedida = r.get('despedida')
 print(despedida)
 ```
+
+# Python y Redis
+```
+import redis
+import json
+
+r = redis.Redis(host='localhost', port=6379, db=0)
+
+# Array Json
+alumnos = [
+    {
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "edad": 20
+    },
+    {
+        "nombre": "Maria",
+        "apellido": "Gomez",
+        "edad": 18
+    },
+    {
+        "nombre": "Jose",
+        "apellido": "Garcia",
+        "edad": 22
+    }
+]
+
+
+# Check if key exists
+if r.exists('alumnos'):
+    print('Key exists')
+else:
+    json_string = json.dumps(alumnos)
+    r.set('alumnos', json_string)
+
+# Get key
+json_string = r.get('alumnos')
+alumnos = json.loads(json_string)
+print(alumnos)
+print(alumnos[0]['nombre'])
+```
