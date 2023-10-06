@@ -15,3 +15,22 @@ marlonfalcon@MacBook-Pro-de-Marlon-3 ~ % docker exec -it fd842b15f611c8687624861
 redis-cli
 ```
 
+## Listamos todas los campos
+```
+keys *
+```
+
+## Insertamos un valor
+```
+set saludos "Hola Mundo"
+```
+
+## Obtenemos el valor
+```
+get saludos
+```
+
+## Creamos un arreglo
+```
+lpush marcas *adidas* *nike* *puma*
+```
